@@ -1,8 +1,8 @@
 'use strict';
 // logs event
 const eventPool = require('./eventPool');
-require('./vendor/handler');
-require('./driver/handler');
+require('./clients/vendor/handler');
+require('./clients/driver/handler');
 var Chance = require('chance');
 var chance = new Chance();
 
