@@ -1,6 +1,6 @@
 'use strict';
 // emits event
-const eventPool = require('../eventPool');
+const eventPool = require('../../eventPool');
 
 var Chance = require('chance');
 var chance = new Chance();

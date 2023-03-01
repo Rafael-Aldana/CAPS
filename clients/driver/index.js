@@ -1,6 +1,6 @@
 'use strict';
 // picks up package ---> delivers package
-const eventPool = require('../eventPool');
+const eventPool = require('../../eventPool');
 
 module.exports = (payload) => {
   console.log(`DRIVER: picked up ${payload.orderID}`);
