@@ -1,8 +1,14 @@
 'use strict';
-// picks up package ---> delivers package
-const eventPool = require('../../eventPool');
 
-module.exports = (payload) => {
-  console.log(`DRIVER: picked up ${payload.orderID}`);
-  eventPool.emit('in-transit', payload);
-};
+const { socket } = require('../socket');
+const DRIVER = require('./handler');
+
+socket.on('PICKUP', (payload) => {
+  setTimeout(() => {
+    DRIVER(payload);
+  }, 1000);
+});
+
+socket.on('DELIVERED', (payload) => {
+  
+});

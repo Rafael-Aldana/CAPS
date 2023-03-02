@@ -1,8 +1,8 @@
 'use strict';
 // logs event
 const eventPool = require('./eventPool');
-require('./clients/vendor/handler');
-require('./clients/driver/handler');
+require('./clients/vendor/index');
+require('./clients/driver/index');
 var Chance = require('chance');
 var chance = new Chance();
 
@@ -24,8 +24,8 @@ eventPool.on('in-transit', (payload) => {
 });
 
 eventPool.on('delivered', (payload) => {
-  console.log(`DRIVER: Package delivered ${payload.orderID}`);
-  console.log(`VENDOR: Thank you for delivering ${payload.orderID}!`);
+  console.log(`DRIVER: Package delivered to ${payload.store}`);
+  console.log(`VENDOR: Thank you for delivering the package to ${payload.customer}!`);
   console.log({
     event: 'delivered',
     time: new Date().toISOString(),
