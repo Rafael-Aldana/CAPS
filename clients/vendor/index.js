@@ -1,17 +1,14 @@
 'use strict';
-// emits event
-const eventPool = require('../../eventPool');
 
-var Chance = require('chance');
-var chance = new Chance();
 
-module.exports = (storeName) => {
+const { socket } = require('../socket');
+const { createNewPackage } = require('./handler');
 
-  const payload = {
-    store: chance.company(),
-    orderID: chance.guid(),
-    customer: chance.name(),
-    address: chance.address(),
-  };
-  eventPool.emit('pickup', payload);
-};
+
+setInterval(() => {
+  createNewPackage();
+}, 3000);
+
+socket.on('DELIVERED', (payload) => {
+  console.log(`VENDOR: Thank you for delivering the package to ${payload.customer}!`);
+});
