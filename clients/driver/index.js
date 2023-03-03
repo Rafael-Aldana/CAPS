@@ -6,7 +6,7 @@ const DRIVER = require('./handler');
 socket.on('PICKUP', (payload) => {
   setTimeout(() => {
     DRIVER(payload);
-  }, 1000);
+  }, 4000);
 });
 
 socket.on('DELIVERED', (payload) => {
